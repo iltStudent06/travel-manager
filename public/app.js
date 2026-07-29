@@ -1,4 +1,12 @@
 const messageEl = document.getElementById('message');
+const destinationModal = document.getElementById('destinationModal');
+const destinationModalTitle = document.getElementById('destinationModalTitle');
+const destinationModalSubmit = document.getElementById('destinationModalSubmit');
+const destinationModalForm = document.getElementById('destinationModalForm');
+const packageModal = document.getElementById('packageModal');
+const packageModalTitle = document.getElementById('packageModalTitle');
+const packageModalSubmit = document.getElementById('packageModalSubmit');
+const packageModalForm = document.getElementById('packageModalForm');
 
 function setMessage(text, isError = false) {
   messageEl.textContent = text;
@@ -39,6 +47,55 @@ function rowCell(content) {
   return td;
 }
 
+function openDestinationModal(mode, item = null) {
+  if (mode === 'edit' && item) {
+    document.getElementById('destinationId').value = item.id;
+    document.getElementById('destinationName').value = item.name;
+    document.getElementById('destinationCountry').value = item.country;
+    document.getElementById('destinationDescription').value = item.description;
+    destinationModalTitle.textContent = 'Edit Destination';
+    destinationModalSubmit.textContent = 'Update Destination';
+  } else {
+    destinationModalForm.reset();
+    document.getElementById('destinationId').value = '';
+    destinationModalTitle.textContent = 'Add Destination';
+    destinationModalSubmit.textContent = 'Save Destination';
+  }
+
+  destinationModal.classList.remove('hidden');
+}
+
+function closeDestinationModal() {
+  destinationModal.classList.add('hidden');
+  destinationModalForm.reset();
+  document.getElementById('destinationId').value = '';
+}
+
+function openPackageModal(mode, item = null) {
+  if (mode === 'edit' && item) {
+    document.getElementById('packageId').value = item.id;
+    document.getElementById('packageTitle').value = item.title;
+    document.getElementById('packageDestinationId').value = item.destinationId;
+    document.getElementById('packagePrice').value = item.price;
+    document.getElementById('packageDuration').value = item.durationDays;
+    packageModalTitle.textContent = 'Edit Package';
+    packageModalSubmit.textContent = 'Update Package';
+  } else {
+    packageModalForm.reset();
+    document.getElementById('packageId').value = '';
+    packageModalTitle.textContent = 'Add Package';
+    packageModalSubmit.textContent = 'Save Package';
+  }
+
+  packageModal.classList.remove('hidden');
+}
+
+function closePackageModal() {
+  packageModal.classList.add('hidden');
+  packageModalForm.reset();
+  document.getElementById('packageId').value = '';
+}
+
 async function loadDestinations(filter = '') {
   const query = filter ? `?destination=${encodeURIComponent(filter)}` : '';
   const destinations = await request(`/api/destinations${query}`);
@@ -53,14 +110,12 @@ async function loadDestinations(filter = '') {
     tr.append(rowCell(item.description));
 
     const actions = document.createElement('td');
+    actions.className = 'actions-cell';
     const group = document.createElement('div');
     group.className = 'action-buttons';
     group.append(
-      button('Edit', '', () => {
-        document.getElementById('destinationId').value = item.id;
-        document.getElementById('destinationName').value = item.name;
-        document.getElementById('destinationCountry').value = item.country;
-        document.getElementById('destinationDescription').value = item.description;
+      button('Edit', 'edit-button', () => {
+        openDestinationModal('edit', item);
       })
     );
     group.append(
@@ -90,15 +145,12 @@ async function loadPackages() {
     tr.append(rowCell(String(item.durationDays)));
 
     const actions = document.createElement('td');
+    actions.className = 'actions-cell';
     const group = document.createElement('div');
     group.className = 'action-buttons';
     group.append(
-      button('Edit', '', () => {
-        document.getElementById('packageId').value = item.id;
-        document.getElementById('packageTitle').value = item.title;
-        document.getElementById('packageDestinationId').value = item.destinationId;
-        document.getElementById('packagePrice').value = item.price;
-        document.getElementById('packageDuration').value = item.durationDays;
+      button('Edit', 'edit-button', () => {
+        openPackageModal('edit', item);
       })
     );
     group.append(
@@ -114,7 +166,7 @@ async function loadPackages() {
   });
 }
 
-document.getElementById('destinationForm').addEventListener('submit', async (event) => {
+destinationModalForm.addEventListener('submit', async (event) => {
   event.preventDefault();
   try {
     const id = document.getElementById('destinationId').value;
@@ -132,15 +184,14 @@ document.getElementById('destinationForm').addEventListener('submit', async (eve
       setMessage('Destination created');
     }
 
-    event.target.reset();
-    document.getElementById('destinationId').value = '';
+    closeDestinationModal();
     await loadDestinations(document.getElementById('destinationFilter').value);
   } catch (error) {
     setMessage(error.message, true);
   }
 });
 
-document.getElementById('packageForm').addEventListener('submit', async (event) => {
+packageModalForm.addEventListener('submit', async (event) => {
   event.preventDefault();
   try {
     const id = document.getElementById('packageId').value;
@@ -159,22 +210,33 @@ document.getElementById('packageForm').addEventListener('submit', async (event) 
       setMessage('Package created');
     }
 
-    event.target.reset();
-    document.getElementById('packageId').value = '';
+    closePackageModal();
     await loadPackages();
   } catch (error) {
     setMessage(error.message, true);
   }
 });
 
-document.getElementById('destinationCancel').addEventListener('click', () => {
-  document.getElementById('destinationForm').reset();
-  document.getElementById('destinationId').value = '';
+document.getElementById('openDestinationModal').addEventListener('click', () => {
+  openDestinationModal('create');
 });
 
-document.getElementById('packageCancel').addEventListener('click', () => {
-  document.getElementById('packageForm').reset();
-  document.getElementById('packageId').value = '';
+document.getElementById('destinationModalCancel').addEventListener('click', closeDestinationModal);
+destinationModal.addEventListener('click', (event) => {
+  if (event.target === destinationModal) {
+    closeDestinationModal();
+  }
+});
+
+document.getElementById('openPackageModal').addEventListener('click', () => {
+  openPackageModal('create');
+});
+
+document.getElementById('packageModalCancel').addEventListener('click', closePackageModal);
+packageModal.addEventListener('click', (event) => {
+  if (event.target === packageModal) {
+    closePackageModal();
+  }
 });
 
 document.getElementById('applyDestinationFilter').addEventListener('click', async () => {

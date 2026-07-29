@@ -56,6 +56,14 @@ h1 {
   margin-bottom: 10px;
 }
 
+.destination-actions {
+  margin-bottom: 10px;
+}
+
+.package-actions {
+  margin-bottom: 10px;
+}
+
 input,
 button {
   padding: 8px;
@@ -70,17 +78,34 @@ button {
   cursor: pointer;
 }
 
+#openDestinationModal,
+#openPackageModal,
+#applyDestinationFilter {
+  background: #0d9488;
+}
+
+#refreshDestinations,
+#refreshPackages {
+  background: #d1d5db;
+  color: #1f2937;
+}
+
 button.secondary {
   background: #6b7280;
 }
 
 button.danger {
-  background: #dc2626;
+  background: #fb923c;
+}
+
+button.edit-button {
+  background: #60a5fa;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 th,
@@ -88,18 +113,126 @@ td {
   border: 1px solid #e5e7eb;
   padding: 8px;
   text-align: left;
+  vertical-align: top;
 }
 
 th {
   background: #f9fafb;
 }
 
+#destinationsDataTable th.actions-header,
+#packagesDataTable th.actions-header,
+#destinationsDataTable td.actions-cell,
+#packagesDataTable td.actions-cell {
+  width: 130px;
+  min-width: 130px;
+  max-width: 130px;
+  text-align: center;
+}
+
+#packagesDataTable th.actions-header,
+#packagesDataTable td.actions-cell {
+  width: 160px;
+  min-width: 160px;
+  max-width: 160px;
+}
+
+#destinationsDataTable .action-buttons,
+#packagesDataTable .action-buttons {
+  width: 100%;
+}
+
+#destinationsDataTable th:first-child,
+#destinationsDataTable td:first-child,
+#packagesDataTable th:first-child,
+#packagesDataTable td:first-child {
+  width: 56px;
+}
+
+#destinationsDataTable th:nth-child(2),
+#destinationsDataTable td:nth-child(2) {
+  width: 140px;
+}
+
+#destinationsDataTable th:nth-child(3),
+#destinationsDataTable td:nth-child(3) {
+  width: 120px;
+}
+
+#destinationsDataTable th:nth-child(4),
+#destinationsDataTable td:nth-child(4) {
+  width: 42%;
+}
+
+#packagesDataTable th:nth-child(3),
+#packagesDataTable td:nth-child(3) {
+  width: 145px;
+}
+
+#packagesDataTable th:nth-child(4),
+#packagesDataTable td:nth-child(4) {
+  width: 120px;
+}
+
+#packagesDataTable th:nth-child(5),
+#packagesDataTable td:nth-child(5) {
+  width: 145px;
+}
+
 .action-buttons {
   display: flex;
+  flex-direction: row;
   gap: 6px;
+}
+
+.action-buttons button {
+  flex: 1;
 }
 
 .message {
   min-height: 20px;
   font-weight: 600;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 620px;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-header {
+  margin-bottom: 12px;
+}
+
+.modal-header h3 {
+  margin: 0;
+}
+
+.destination-modal-form {
+  grid-template-columns: 1fr;
+}
+
+.package-modal-form {
+  grid-template-columns: 1fr;
+}
+
+#destinationDescription {
+  min-width: 50ch;
 }
