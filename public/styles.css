@@ -83,14 +83,10 @@ button {
 
 #openDestinationModal,
 #openPackageModal,
-#applyDestinationFilter {
+#applyDestinationFilter,
+#destinationModalSubmit,
+#packageModalSubmit {
   background: #0d9488;
-}
-
-#refreshDestinations,
-#refreshPackages {
-  background: #d1d5db;
-  color: #1f2937;
 }
 
 button.secondary {

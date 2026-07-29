@@ -326,24 +326,6 @@ document.getElementById('clearDestinationFilter').addEventListener('click', asyn
   }
 });
 
-document.getElementById('refreshDestinations').addEventListener('click', async () => {
-  try {
-    await loadDestinations(document.getElementById('destinationFilter').value);
-    setMessage('Destinations refreshed');
-  } catch (error) {
-    setMessage(error.message, true);
-  }
-});
-
-document.getElementById('refreshPackages').addEventListener('click', async () => {
-  try {
-    await loadPackages(document.getElementById('destinationFilter').value);
-    setMessage('Packages refreshed');
-  } catch (error) {
-    setMessage(error.message, true);
-  }
-});
-
 async function init() {
   try {
     const keyword = document.getElementById('destinationFilter').value;
