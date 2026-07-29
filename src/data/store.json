@@ -64,8 +64,8 @@
   "packages": [
     {
       "id": 1,
-      "title": "Aegean Escape",
-      "destinationId": 1,
+      "title": "Bali Wellness Retreat",
+      "destinationId": 3,
       "price": 1299,
       "durationDays": 5
     },
@@ -78,8 +78,8 @@
     },
     {
       "id": 3,
-      "title": "Bali Wellness Retreat",
-      "destinationId": 3,
+      "title": "Aegean Escape",
+      "destinationId": 1,
       "price": 1199,
       "durationDays": 6
     },
@@ -87,14 +87,14 @@
       "id": 4,
       "title": "Iceland Aurora Explorer",
       "destinationId": 4,
-      "price": 1899,
+      "price": 2899,
       "durationDays": 7
     },
     {
       "id": 5,
       "title": "Cape Town Coastal Adventure",
       "destinationId": 5,
-      "price": 1399,
+      "price": 2399,
       "durationDays": 5
     },
     {
@@ -106,8 +106,8 @@
     },
     {
       "id": 7,
-      "title": "Lisbon Culture Getaway",
-      "destinationId": 7,
+      "title": "Marrakech Medina Experience",
+      "destinationId": 10,
       "price": 1099,
       "durationDays": 4
     },
@@ -115,20 +115,20 @@
       "id": 8,
       "title": "Cusco Inca Trail Starter",
       "destinationId": 8,
-      "price": 1699,
+      "price": 3699,
       "durationDays": 7
     },
     {
       "id": 9,
       "title": "Queenstown Adventure Pass",
       "destinationId": 9,
-      "price": 1999,
+      "price": 2999,
       "durationDays": 6
     },
     {
       "id": 10,
-      "title": "Marrakech Medina Experience",
-      "destinationId": 10,
+      "title": "Lisbon Culture Getaway",
+      "destinationId": 7,
       "price": 1299,
       "durationDays": 5
     }

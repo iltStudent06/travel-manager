@@ -53,6 +53,8 @@ h1 {
 .filter-row {
   display: flex;
   gap: 8px;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 10px;
 }
 
@@ -65,6 +67,7 @@ h1 {
 }
 
 input,
+select,
 button {
   padding: 8px;
   border-radius: 6px;

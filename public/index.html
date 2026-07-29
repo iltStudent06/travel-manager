@@ -10,6 +10,11 @@
     <main class="container">
       <h1>Travel Manager</h1>
       <p class="subtitle">Manage destinations and travel packages</p>
+      <div class="filter-row">
+        <input id="destinationFilter" placeholder="Filter by keywords" />
+        <button id="applyDestinationFilter" type="button">Search</button>
+        <button id="clearDestinationFilter" type="button" class="secondary">Clear</button>
+      </div>
 
       <section class="panel">
         <div class="panel-header">
@@ -18,10 +23,6 @@
         </div>
         <div class="destination-actions">
           <button id="openDestinationModal" type="button">Add Destination</button>
-        </div>
-        <div class="filter-row">
-          <input id="destinationFilter" placeholder="Filter by destination name" />
-          <button id="applyDestinationFilter" type="button">Search</button>
         </div>
         <table id="destinationsDataTable">
           <thead>
@@ -52,7 +53,7 @@
               <th>Title</th>
               <th>Destination ID</th>
               <th>Price (USD)</th>
-              <th>Number of Days</th>
+              <th>Duration (Days)</th>
               <th class="actions-header">Actions</th>
             </tr>
           </thead>
@@ -87,9 +88,11 @@
         <form id="packageModalForm" class="form-grid package-modal-form">
           <input type="hidden" id="packageId" />
           <input id="packageTitle" placeholder="Title" required />
-          <input id="packageDestinationId" type="number" placeholder="Destination ID" required />
-          <input id="packagePrice" type="number" placeholder="Price" required />
-          <input id="packageDuration" type="number" placeholder="Duration" required />
+          <select id="packageDestinationId" required>
+            <option value="" disabled selected>Select Destination</option>
+          </select>
+          <input id="packagePrice" type="number" placeholder="Price (USD)" required />
+          <input id="packageDuration" type="number" placeholder="Duration (Days)" required />
           <button id="packageModalSubmit" type="submit">Save Package</button>
           <button id="packageModalCancel" type="button" class="secondary">Cancel</button>
         </form>
