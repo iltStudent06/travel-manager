@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Manager</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Travel Manager</h1>
+      <p class="subtitle">Manage destinations and travel packages</p>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Destinations</h2>
+          <button id="refreshDestinations" type="button">Refresh</button>
+        </div>
+        <form id="destinationForm" class="form-grid">
+          <input type="hidden" id="destinationId" />
+          <input id="destinationName" placeholder="Name" required />
+          <input id="destinationCountry" placeholder="Country" required />
+          <input id="destinationDescription" placeholder="Description" required />
+          <button type="submit">Save Destination</button>
+          <button id="destinationCancel" type="button" class="secondary">Cancel Edit</button>
+        </form>
+        <div class="filter-row">
+          <input id="destinationFilter" placeholder="Filter by destination name" />
+          <button id="applyDestinationFilter" type="button">Search</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Country</th>
+              <th>Description</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="destinationsTable"></tbody>
+        </table>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Packages</h2>
+          <button id="refreshPackages" type="button">Refresh</button>
+        </div>
+        <form id="packageForm" class="form-grid">
+          <input type="hidden" id="packageId" />
+          <input id="packageTitle" placeholder="Title" required />
+          <input id="packageDestinationId" type="number" placeholder="Destination ID" required />
+          <input id="packagePrice" type="number" placeholder="Price" required />
+          <input id="packageDuration" type="number" placeholder="Duration (days)" required />
+          <button type="submit">Save Package</button>
+          <button id="packageCancel" type="button" class="secondary">Cancel Edit</button>
+        </form>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Destination ID</th>
+              <th>Price</th>
+              <th>Days</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="packagesTable"></tbody>
+        </table>
+      </section>
+
+      <p id="message" class="message"></p>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

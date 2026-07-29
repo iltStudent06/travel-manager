@@ -1,0 +1,21 @@
+{
+  "name": "travel-manager",
+  "version": "1.0.0",
+  "description": "Express REST API for travel destinations, packages, and itineraries",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node src/server.js"
+  },
+  "keywords": [
+    "express",
+    "rest",
+    "travel"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "destinations": [
+    {
+      "id": 1,
+      "name": "Santorini",
+      "country": "Greece",
+      "description": "Island destination with beaches and sunsets"
+    },
+    {
+      "id": 2,
+      "name": "Kyoto",
+      "country": "Japan",
+      "description": "Temples and gardens"
+    },
+    {
+      "id": 3,
+      "name": "Bali",
+      "country": "Indonesia",
+      "description": "Tropical beaches and rice terraces"
+    },
+    {
+      "id": 4,
+      "name": "Reykjavik",
+      "country": "Iceland",
+      "description": "Northern lights and geothermal lagoons"
+    },
+    {
+      "id": 5,
+      "name": "Cape Town",
+      "country": "South Africa",
+      "description": "Mountain views, coastline, and vineyards"
+    },
+    {
+      "id": 6,
+      "name": "Vancouver",
+      "country": "Canada",
+      "description": "Urban city with nearby mountains and parks"
+    },
+    {
+      "id": 7,
+      "name": "Lisbon",
+      "country": "Portugal",
+      "description": "Historic neighborhoods and scenic viewpoints"
+    },
+    {
+      "id": 8,
+      "name": "Cusco",
+      "country": "Peru",
+      "description": "Andean culture and gateway to Machu Picchu"
+    },
+    {
+      "id": 9,
+      "name": "Queenstown",
+      "country": "New Zealand",
+      "description": "Lakeside adventure hub with alpine scenery"
+    },
+    {
+      "id": 10,
+      "name": "Marrakech",
+      "country": "Morocco",
+      "description": "Colorful souks, gardens, and local cuisine"
+    }
+  ],
+  "packages": [
+    {
+      "id": 1,
+      "title": "Aegean Escape",
+      "destinationId": 1,
+      "price": 1299,
+      "durationDays": 5
+    },
+    {
+      "id": 2,
+      "title": "Kyoto Highlights",
+      "destinationId": 2,
+      "price": 1499,
+      "durationDays": 4
+    },
+    {
+      "id": 3,
+      "title": "Bali Wellness Retreat",
+      "destinationId": 3,
+      "price": 1199,
+      "durationDays": 6
+    },
+    {
+      "id": 4,
+      "title": "Iceland Aurora Explorer",
+      "destinationId": 4,
+      "price": 1899,
+      "durationDays": 7
+    },
+    {
+      "id": 5,
+      "title": "Cape Town Coastal Adventure",
+      "destinationId": 5,
+      "price": 1399,
+      "durationDays": 5
+    },
+    {
+      "id": 6,
+      "title": "Vancouver Nature & City",
+      "destinationId": 6,
+      "price": 1599,
+      "durationDays": 6
+    },
+    {
+      "id": 7,
+      "title": "Lisbon Culture Getaway",
+      "destinationId": 7,
+      "price": 1099,
+      "durationDays": 4
+    },
+    {
+      "id": 8,
+      "title": "Cusco Inca Trail Starter",
+      "destinationId": 8,
+      "price": 1699,
+      "durationDays": 7
+    },
+    {
+      "id": 9,
+      "title": "Queenstown Adventure Pass",
+      "destinationId": 9,
+      "price": 1999,
+      "durationDays": 6
+    },
+    {
+      "id": 10,
+      "title": "Marrakech Medina Experience",
+      "destinationId": 10,
+      "price": 1299,
+      "durationDays": 5
+    }
+  ]
+}
